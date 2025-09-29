@@ -43,7 +43,10 @@ purpose_assessments.pdf.parquet
 ```
 ### Example Analyses
 
-For these examples, the 5% subset of the data is used.
+For these examples, the 5% subset of the data is used. First 3 examples are shown in R and then the same 3 examples are shown in Python.
+
+Examples in R
+
 These examples require the `tidyverse` and `arrow` packages to run, but should otherwise work as-is.
 
 ```R
@@ -68,6 +71,7 @@ This example filters by `software_normalied` as this is less noisy than `softwar
   <int>
 1   376
 ```
+
 
 2. How did the number of papers referencing STATA each year change from 2000-2020?
 
@@ -143,6 +147,9 @@ The "document" scope is appropriate here as we're interested in whether the soft
 # ℹ 79,720 more rows
 # ℹ Use `print(n = ...)` to see more rows
 ```
+
+More examples in Python can be found here : [Python_Examples.md](https://github.com/shaunak-pusalkar/softcite-extractions-oa/blob/8b03ac84e6fa2e5d4f7a07458f793aaa82a2e1f6/Python_Examples.md)
+
 ## Additional details and provenance
 
 The Grobid extraction pipeline worked with multiple sources for each paper, including PDFs and xml sources from publishers, such as JATS and TEI XML.  This produced json files, which were then processed to tabular formats in parquet. 
