@@ -11,9 +11,13 @@ output_path = "/content/drive/MyDrive/full_dataset/purpose_assessments_fixed.par
 # Step 1: Load using pandas (PyArrow as engine ensures correct parsing)
 df = pd.read_parquet(input_path, engine="pyarrow")
 
-# Step 2: Fix schema issues (convert uint16 → int32 for cross-language compatibility)
-for col in df.select_dtypes(include=["uint16"]).columns:
-    df[col] = df[col].astype("int32")
+# Step 2: Fix schema issues - convert ALL unsigned ints
+for col in df.columns:
+    if str(df[col].dtype).startswith("uint"):
+        if df[col].dtype == "uint64":
+            df[col] = df[col].astype("int64")
+        else:
+            df[col] = df[col].astype("int32")
 
 # Optional: normalize column names (if Go wrote mixed cases or spaces)
 df.columns = [c.strip() for c in df.columns]
