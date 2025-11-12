@@ -1,4 +1,4 @@
-This is the code which reads the old parquet files into memory again and rewrites them with improved schema and same (gzip) compression technique
+#This is the code which reads the old parquet files into memory again and rewrites them with improved schema and same (gzip) compression technique
 
 import pandas as pd
 import pyarrow as pa
