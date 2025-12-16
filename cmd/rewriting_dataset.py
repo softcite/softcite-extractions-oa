@@ -6,9 +6,9 @@ import pyarrow.parquet as pq
 import numpy as np
 from pathlib import Path
 
-# === CONFIG ===
-input_path = Path("/scratch/10000/.../papers.parquet")
-output_path = input_path.with_name(input_path.stem + "_gzip_fixed.parquet")
+# === CONFIG === (pls modify the path as per the need)
+input_path = Path("/.../softcite-extractions-oa-data/.../papers.parquet")
+output_path = Path("/.../softcite-extractions-oa-data-1.0.1/.../papers.parquet")
 
 # === LOAD FULL DATA INTO MEMORY ===
 print("Loading full dataset into memory...")
